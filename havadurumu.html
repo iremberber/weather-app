@@ -11,18 +11,36 @@
 
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <input type="text" placeholder="Ülke/Şehir adı girin" spellcheck="false">
             <button><img src="https://img.icons8.com/?size=50&id=12773&format=png" id="search"></button>
         </div>
 
+        <div class="error">Geçersiz ülke/şehir adı girdiniz.</div>
+
         <div class="weather">
-            <img src="https://freepngimg.com/thumb/weather/23793-9-weather-photos-thumb.png" class="weather-icon">
+            <img src="https://cdn-icons-png.flaticon.com/128/869/869869.png" class="weather-icon">
             <h1 class="temp">22°C</h1>
             <h2 class="city"> New York</h2>
+
             <div class="detail">
+
                 <div class="col">
-                    <img src="https://toppng.com/uploads/preview/humidity-png-115539515486hder8cchj.png" alt="">
+                    <img src="https://www.svgrepo.com//show/424939/weather-humidity-rain.svg" id="drop">
+                    <div>
+                    <p class="humidity">50%</p>
+                    <p>Nem</p>
+                    </div>
                 </div>
+                
+
+                <div class="col">
+                    <img src="https://www.svgrepo.com//show/276672/windy-wind.svg" id="wind">
+                    <div>
+                     <p class="wind">15 km/s</p>
+                     <p>Rüzgar Hızı</p>
+                    </div>
+                </div>
+        
             </div>
         </div>
     </div>
