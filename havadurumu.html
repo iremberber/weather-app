@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -7,13 +8,14 @@
 <link rel="stylesheet" href="havadurumu.css">
 </head>
 
-<body>
+<body class="body">
 
     <div class="card">
         <div class="search">
-            <input type="text" placeholder="Ülke/Şehir adı girin" spellcheck="false">
+            <input type="text" id="input-box" placeholder="Ülke/Şehir adı girin" spellcheck="false" autocomplete="off">
             <button><img src="https://img.icons8.com/?size=50&id=12773&format=png" id="search"></button>
         </div>
+        <div class="result-box"> </div>
 
         <div class="error">Geçersiz ülke/şehir adı girdiniz.</div>
 
