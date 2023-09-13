@@ -8,6 +8,7 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const resultsBox = document.querySelector(".result-box");
+const detail = document.querySelector(".detail")
 
 let availableKeywords = [
     'Adana',
@@ -116,6 +117,7 @@ function display(result) {
 
 function selectInput(list){
     searchBox.value = list.innerHTML;
+    searchBtn.click();
     resultsBox.innerHTML = '';
 };
 
@@ -133,25 +135,35 @@ document.querySelector(".weather").style.display = "none";
         document.querySelector(".humidity").innerHTML = "%" + data.main.humidity;
         document.querySelector(".wind").innerHTML = data.wind.speed + "km/sa";
     
-        if(data.weather[0].main =="Clouds"){
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/1163/1163624.png";
-            body.style.background = "url('https://images.alphacoders.com/744/thumb-1920-744574.jpg')";
+        if(data.weather[0].main =="Clear"){
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6455/6455017.gif";
+            body.style.background = "#e6f6ff";
+            detail.style.color = "#5f9595";
         }
-        else if(data.weather[0].main =="Clear"){
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/869/869869.png";
-            body.style.background = "url('https://images.unsplash.com/photo-1609376224342-8902c39a3675?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2xlYXIlMjBibHVlJTIwc2t5fGVufDB8fDB8fHww&w=1000&q=80')"
-        }
-        else if(data.weather[0].main =="Rain"){
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/4735/4735072.png";
-            body.style.background = "url('https://wallpaperaccess.com/full/3886828.jpg')"
-        }
-        else if(data.weather[0].main =="Drizzle"){
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/1163/1163657.png";
-            body.style.background = "url('https://cdn.wallpapersafari.com/80/79/6JmCqO.jpg')"
+        else if(data.weather[0].main =="Clouds"){
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6455/6455024.gif";
+            body.style.background = "#cdecff";
+            detail.style.color = "#5f9595";
         }
         else if(data.weather[0].main =="Mist"){
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/11492/11492160.png";
-            body.style.background = "url('https://4kwallpapers.com/images/wallpapers/mountains-blue-sky-mountain-range-fog-peak-3840x2160-5364.jpg')"
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6454/6454995.gif";
+            body.style.background = "#b3e3ff";
+            detail.style.color = "#5f9595";
+        }
+        else if(data.weather[0].main =="Drizzle"){
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6455/6455057.gif";
+            body.style.background = "#9adaff";
+            detail.style.color = "#5f9595";
+        }
+        else if(data.weather[0].main =="Rain"){
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6455/6455055.gif";
+            body.style.background = "#80d0ff";
+            detail.style.color = "#5f9595";
+        }
+         else if(data.weather[0].main =="Snow"){
+            weatherIcon.src = "https://cdn-icons-gif.flaticon.com/6455/6455058.gif";
+            body.style.background = "#67c7ff";
+            detail.style.color = "#5f9595";
         }
     
         document.querySelector(".weather").style.display = "block";
