@@ -10,6 +10,11 @@ const weatherIcon = document.querySelector(".weather-icon");
 const resultsBox = document.querySelector(".result-box");
 const detail = document.querySelector(".detail")
 
+const istanbulDiv = document.getElementById("istanbul");
+const newYorkDiv = document.getElementById("newyork");
+const londonDiv = document.getElementById("london");
+const sehirler = document.getElementById("sehirler");
+
 let availableKeywords = [
     'Adana',
 'Adıyaman',
@@ -172,10 +177,54 @@ document.querySelector(".weather").style.display = "none";
 
     }
   
+    function displayWeather(city, divElement) {
+        fetch(apiUrl + city + `&appid=${apiKey}`)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.cod === 200) {
+                    const temperature = Math.round(data.main.temp) + "°C";
+                    const humidity = "%" + data.main.humidity;
+                    const windSpeed = data.wind.speed + "km/sa";
+    
+                    const weatherHTML = `
+                        <h1 class="temp">${temperature}</h1>
+                        <h2 class="city">${city}</h2>
+                        <div class="detail">
+                            <div class="col">
+                                <img src="https://cdn-icons-gif.flaticon.com/11095/11095576.gif" id="drop">
+                                <div>
+                                    <p class="humidity">${humidity}</p>
+                                    <p>Nem</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <img src="https://cdn-icons-gif.flaticon.com/6455/6455039.gif" id="wind">
+                                <div>
+                                    <p class="wind">${windSpeed}</p>
+                                    <p>Rüzgar Hızı</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+    
+                    divElement.innerHTML = weatherHTML;
+                } else {
+                    divElement.innerHTML = "Hava durumu bulunamadı.";
+                }
+            })
+            .catch((error) => {
+                divElement.innerHTML = "Hava durumu bilgileri alınırken bir hata oluştu.";
+            });
+    }
+    displayWeather("Istanbul", istanbulDiv);
+    displayWeather("New York", newYorkDiv);
+    displayWeather("London", londonDiv);
+
    
 searchBtn.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
     resultsBox.innerHTML = '';
+    sehirler.style.display = 'none';
     
 })
 
