@@ -15,6 +15,9 @@ const newYorkDiv = document.getElementById("newyork");
 const londonDiv = document.getElementById("london");
 const sehirler = document.getElementById("sehirler");
 
+const citycard = document.getElementById("citycard");
+const arrowimg = document.getElementById("arrowimg");
+
 let availableKeywords = [
     'Adana',
 'Adıyaman',
@@ -227,6 +230,22 @@ searchBtn.addEventListener("click", ()=>{
     sehirler.style.display = 'none';
     
 })
+
+let isCityCardVisible = false;
+
+
+arrowimg.style.cursor = "pointer";
+
+arrowimg.addEventListener("click", () => {
+    isCityCardVisible = !isCityCardVisible;
+    
+    // Citycard'ın görünürlüğüne göre margin-right değerini ayarlayın
+    if (isCityCardVisible) {
+        citycard.style.marginLeft = "0";
+    } else {
+        citycard.style.marginLeft = "-420px"; // veya başka bir değer
+    }
+});
 
 checkWeather();
 

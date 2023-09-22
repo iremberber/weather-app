@@ -16,6 +16,7 @@ body{
     color: black;
     height: 100%;
     width: 100%;
+    justify-content: center;
     
 }
 
@@ -24,11 +25,16 @@ body{
     max-width: 470px;
     background: #ffffff;
     color : #000000;
-    margin: 70px auto 0;
+    margin: auto 0;
+    left: 35%;
+    right: 35%;
+    top: 15px;
     padding : 40px 35px;
     border-radius: 15px;
     text-align: center;
     backdrop-filter: blur(20px);
+    z-index: 1;
+    position: relative;
 }
 
 .search{
@@ -152,15 +158,57 @@ body{
     display: none;
 }
 
-#sehirler{
-    width: 90%;
-    max-width: 470px;
+#citycard {
+    z-index: 2;
+    position: relative; /* Ana div'in pozisyonu relative olmalı */
+    display: flex; /* İçerikleri yan yana hizalamak için flex kullanın */
+    align-items: center; /* İçerikleri dikey olarak ortala */
+    max-width: 560px; /* İçeriklerin toplam genişliği */
+    margin: 15px 10px; /* İstenilen kenar boşlukları ayarlayın */
+    margin-left: -420px;
+}
+
+#content {
+    display: flex;
+}
+
+#sehirler {
     background: #ffffff;
-    color : #000000;
-    margin: 70px auto 0;
-    padding : 40px 35px;
+    color: #000000;
+    padding: 40px 35px;
     border-radius: 15px;
     text-align: center;
     backdrop-filter: blur(20px);
-    display: block;
+}
+
+#arrow {
+    background: #ffffff;
+    width: 80px;
+    height: 60px;
+    margin-left: 0px; 
+    border-radius: 0px 50% 50% 0px;
+}
+
+#arrowimg{
+    width: 50px;
+    height: 50px;
+    float: right;
+    margin-top: 5px;
+    transition: margin-right 0.2s; 
+}
+
+#arrowimg:hover {
+    animation: moveRight 2s infinite; 
+}
+
+@keyframes moveRight {
+    0% {
+        margin-right: 5px;
+    }
+    50% {
+        margin-right: 10px;
+    }
+    100% {
+        margin-right: 5px;
+    }
 }
