@@ -18,7 +18,8 @@ const sehirler = document.getElementById("sehirler");
 
 const citycard = document.getElementById("citycard");
 const arrowimg = document.getElementById("arrowimg");
-
+const search2 = document.querySelector(".search2")
+const startButton = document.getElementById("startButton")
 let availableKeywords = [
     'Adana',
 'Adıyaman',
@@ -310,6 +311,11 @@ document.querySelector(".search2 button").addEventListener("click", () => {
     const resultBox = document.querySelector(".result-box2");
     getCityWeather(cityName, resultBox);
 });
+
+startButton.addEventListener("click", function () {
+    search2.style.display = "flex";
+    startButton.style.display = "none";
+  });
 
 checkWeather();
 

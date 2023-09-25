@@ -217,9 +217,10 @@ body{
     }
 }
 
-.search2{display: flex;
+.search2{
     flex-direction: row;
     margin-top: 10px;
+   display: none;
 }
 
 .search2 input{
@@ -288,4 +289,20 @@ border-radius: 5%;
 .result-box2 ul li:hover {
     background-color: rgb(41, 62, 69);
     color: white;
+}
+
+#startButton {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    background: url("https://cdn-icons-png.flaticon.com/128/10613/10613693.png") no-repeat;
+    background-size: cover;
+    border-color: #000000;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+#startButton:hover{
+    transform: rotate(45deg);
 }
